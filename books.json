@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "totalCopies": 5,
+    "availableCopies": 5,
+    "location": "Shelf D1"
+  },
+  {
+    "title": "Introduction to Algorithms",
+    "author": "CLRS",
+    "totalCopies": 4,
+    "availableCopies": 4,
+    "location": "Shelf A2"
+  },
+  {
+    "title": "Operating System Concepts",
+    "author": "Galvin",
+    "totalCopies": 6,
+    "availableCopies": 6,
+    "location": "Shelf C1"
+  },
+  {
+    "title": "Computer Networks",
+    "author": "Andrew Tanenbaum",
+    "totalCopies": 3,
+    "availableCopies": 3,
+    "location": "Shelf B3"
+  },
+  {
+    "title": "Database System Concepts",
+    "author": "Silberschatz",
+    "totalCopies": 5,
+    "availableCopies": 5,
+    "location": "Shelf B2"
+  },
+  {
+    "title": "Design Patterns",
+    "author": "Erich Gamma",
+    "totalCopies": 4,
+    "availableCopies": 4,
+    "location": "Shelf D2"
+  },
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "totalCopies": 3,
+    "availableCopies": 3,
+    "location": "Shelf D3"
+  },
+  {
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell",
+    "totalCopies": 6,
+    "availableCopies": 6,
+    "location": "Shelf E1"
+  },
+  {
+    "title": "Machine Learning",
+    "author": "Tom Mitchell",
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "location": "Shelf E2"
+  },
+  {
+    "title": "Deep Learning",
+    "author": "Ian Goodfellow",
+    "totalCopies": 4,
+    "availableCopies": 4,
+    "location": "Shelf E3"
+  },
+  {
+    "title": "Python Crash Course",
+    "author": "Eric Matthes",
+    "totalCopies": 5,
+    "availableCopies": 5,
+    "location": "Shelf F1"
+  },
+  {
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford",
+    "totalCopies": 3,
+    "availableCopies": 3,
+    "location": "Shelf F2"
+  },
+  {
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "totalCopies": 4,
+    "availableCopies": 4,
+    "location": "Shelf F3"
+  },
+  {
+    "title": "System Design Interview",
+    "author": "Alex Xu",
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "location": "Shelf G1"
+  },
+  {
+    "title": "Cracking the Coding Interview",
+    "author": "Gayle Laakmann McDowell",
+    "totalCopies": 5,
+    "availableCopies": 5,
+    "location": "Shelf G2"
+  }
+]

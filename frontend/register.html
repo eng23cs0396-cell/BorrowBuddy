@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibShare - Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+    .brand {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .brand h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .brand p {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+      background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, select:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    .btn {
+      width: 100%;
+      padding: 11px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    .btn:active {
+      transform: scale(0.99);
+    }
+    .btn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+    .alert {
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .alert-error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .alert-success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+    .footer-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #64748b;
+    }
+    .footer-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-card">
+  <div class="brand">
+    <h1>📚 LibShare</h1>
+    <p>Create a library account</p>
+  </div>
+
+  <div id="alertBox" class="alert"></div>
+
+  <form id="registerForm" onsubmit="handleRegister(event)">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input id="name" type="text" placeholder="John Doe" required autocomplete="name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input id="email" type="email" placeholder="john@example.com" required autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="At least 4 characters" minlength="4" required autocomplete="new-password">
+    </div>
+
+    <div class="form-group">
+      <label for="role">Account Type</label>
+      <select id="role">
+        <option value="student">Student</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    <button id="registerBtn" type="submit" class="btn">Register</button>
+  </form>
+
+  <p class="footer-link">
+    Already have an account? <a href="login.html">Sign in here</a>
+  </p>
+</div>
+
+<script>
+  function showAlert(msg, isSuccess = false) {
+    const alertBox = document.getElementById("alertBox");
+    alertBox.textContent = msg;
+    alertBox.className = "alert " + (isSuccess ? "alert-success" : "alert-error");
+    alertBox.style.display = "block";
+  }
+
+  function hideAlert() {
+    document.getElementById("alertBox").style.display = "none";
+  }
+
+  async function handleRegister(e) {
+    e.preventDefault();
+    hideAlert();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+    const btn = document.getElementById("registerBtn");
+
+    if (!name || !email || !password) {
+      showAlert("Please fill in all required fields.");
+      return;
+    }
+
+    if (password.length < 4) {
+      showAlert("Password must be at least 4 characters long.");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Creating Account...";
+
+    try {
+      const res = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password, role })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        showAlert(data.message || "Registration failed. Please try again.");
+        btn.disabled = false;
+        btn.textContent = "Register";
+        return;
+      }
+
+      showAlert(data.message + " Redirecting to login...", true);
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    } catch (err) {
+      console.error(err);
+      showAlert("Cannot connect to server. Ensure the backend server is running on port 5000.");
+      btn.disabled = false;
+      btn.textContent = "Register";
+    }
+  }
+</script>
+
+</body>
+</html>
